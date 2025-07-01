@@ -3,20 +3,17 @@
 username=$1
 email=$2
 
-if [ "$#" -ne 2 || $1 == "-h" ]; then
+if [[ "$#" -ne 2 || $1 == "-h" ]]; then
 	echo "usage: sh 2-setup-git.sh <git.user.name> git.user.email>"
 fi
 
-echo "install packages"
-sudo yum install -y git tmux
-echo "ok"
 
 echo "settings git user.name"
 git config --global user.name "$1"
 echo "ok"
 
 echo "setting git user.email"
-git config --global user.name "$2"
+git config --global user.email "$2"
 echo "ok"
 
 echo "cloning project 'guideposts98/SWE6733-Group-1'"

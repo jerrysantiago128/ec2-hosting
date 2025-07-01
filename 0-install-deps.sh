@@ -18,5 +18,12 @@ sudo systemctl start docker
 echo "add user to Docker group"
 sudo usermod -aG docker $USER
 sudo chmod 777 /var/run/docker.sock
+echo "install latest Docker Composer"
+sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+echo "changing executable permissions"
+sudo chmod +x /usr/local/bin/docker-compose
 echo "Dependency installation complete"
+
+echo "verify versions with"
+echo "docker-comopser version && docker -v"
 

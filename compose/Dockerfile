@@ -31,6 +31,9 @@ RUN cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys \
 #copy untracked .env file for s3
 COPY ./../.env /var/www/html
 
+# copy apache-listen.conf
+COPY apache-listen.conf /etc/apache2/sites-available/000-default.conf
+RUN a2enmod ssl && a2ensite 000-default.conf
 FROM base AS builder
 
 #mount ssh agent and clone code

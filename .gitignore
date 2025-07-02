@@ -1,0 +1,8 @@
+#ignore web app volume data for git
+compose/volumes/
+.env
+id_rsa.pub
+id_rsa
+compose/.env
+compose/id_rsa.pub
+compose/id_rsa

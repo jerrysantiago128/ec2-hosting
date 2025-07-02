@@ -14,6 +14,7 @@ echo "COPY THE CONTENTS BELOW TO GITHUB SSHKEY ENTRY"
 echo " "
 echo " "
 echo " "
+cp ~/.ssh/id_rsa/pub .
 cat ~/.ssh/id_rsa.pub
 echo " "
 echo " "

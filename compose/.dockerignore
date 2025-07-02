@@ -1,0 +1,7 @@
+# .dockerignore from image git clone, composer install, etc
+#.git
+#.gitignore
+#.env
+#vendor/
+#node_modules/
+#logs/

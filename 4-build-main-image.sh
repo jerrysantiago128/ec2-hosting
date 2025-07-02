@@ -1,7 +1,7 @@
 #!/bin/bash
 
-cd compose/
-docker build -t rovaly-web-app:0.0.1 .
+cd compose/main/
+docker build -t rovaly-web-app:sprint-1-main .
 cd ..
 
 # if this fails, you may need to run the following
@@ -15,4 +15,4 @@ cd ..
 
 # this will update and add the new ssh agent pid to your id_rsa file
 echo "NEW IMAGE BUILT SUCCESSFULLY"
-echo "run 5-deploy-services.sh to start service suite"
+echo "run docker compose -f compose/main/docker-compose.yml to start service"

@@ -44,10 +44,18 @@ FROM base
 COPY --from=builder /tmp/app/ /var/www/html/
 
 # adding safe directory for install
-git config --global --add safe.directory /var/www/html
+RUN git config --global --add safe.directory /var/www/html
+
+# COPY FILES THAT NEED TO BE UPDATED FOR EC2 RUN
+COPY DataAccess.php /var/www/html/DataAccess/DataAccess.php
+COPY composer.json /var/www/html/Packages/composer.json
+COPY composer.lock /var/www/html/Packages/composer.lock
 
 # install needed package from composer.json file
-RUN cd Packages && composer install --no-dev --optimize-autoloader
+RUN cd Packages 
+# may only need one of these
+RUN composer install --no-dev --optimize-autoloader
+RUN composer update
 
 
 RUN chown -R www-data:www-data /var/www/html

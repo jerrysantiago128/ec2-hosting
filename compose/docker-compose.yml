@@ -6,9 +6,5 @@ services:
     container_name: rovaly-web-app
     ports:
       - "8080:8080"
-      - "8443:8443"
     expose:
       - 8080
-      - 8443
-    volumes:
-      - ./../volumes:/var/www/html:cached

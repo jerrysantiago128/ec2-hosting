@@ -43,6 +43,8 @@ RUN --mount=type=ssh git clone git@github.com:guideposts98/SWE6733-Group-1.git /
 FROM base
 COPY --from=builder /tmp/app/ /var/www/html/
 
+# adding safe directory for install
+git config --global --add safe.directory /var/www/html
 
 # install needed package from composer.json file
 RUN cd Packages && composer install --no-dev --optimize-autoloader
@@ -51,6 +53,6 @@ RUN cd Packages && composer install --no-dev --optimize-autoloader
 RUN chown -R www-data:www-data /var/www/html
 
 # will be done in compose file
-EXPOSE 8080
+#EXPOSE 8080
 
 CMD [ "apache2-foreground" ]

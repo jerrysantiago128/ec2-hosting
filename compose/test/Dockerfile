@@ -45,11 +45,8 @@ COPY --from=builder /tmp/app/ /var/www/html/
 
 # adding safe directory for install
 RUN git config --global --add safe.directory /var/www/html
+RUN git checkout ec2-php-fix
 
-# COPY FILES THAT NEED TO BE UPDATED FOR EC2 RUN
-COPY DataAccess.php /var/www/html/DataAccess/DataAccess.php
-COPY composer.json /var/www/html/Packages/composer.json
-COPY composer.lock /var/www/html/Packages/composer.lock
 
 # install needed package from composer.json file
 RUN cd Packages 

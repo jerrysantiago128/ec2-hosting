@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd compose/main/
+cd compose/test/
 docker build -t rovaly-web-app:sprint-1-test .
 cd ..
 

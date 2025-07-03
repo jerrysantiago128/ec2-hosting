@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  rovaly-web-app:
+  rovaly-web-app-main:
     image: rovaly-web-app:sprint-1-main
     container_name: rovaly-web-app-main
     ports:

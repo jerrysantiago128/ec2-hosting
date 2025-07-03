@@ -1,10 +1,37 @@
 version: '3.8'
 
 services:
-  rovaly-web-app:
-    image: rovaly-web-app:sprint-1-test
-    container_name: rovaly-web-app-test
-    ports:
-      - "8081:8081"
-    expose:
-      - 8081
+  rovaly-database:
+    image: mysql:8.0
+    container_name: rovaly-db
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+      MYSQL_DATABASE: rovalydb
+    ports: 
+      - "3306:3306"
+    expose: 
+      - 3306
+    volumes:
+      - rovaly-database_volume:/var/lib/mysql #persistent MYSQL data volume
+      - $HOME/SWE6733-Group-1:/docker-entrypoint-initdb.d/ # folder where database file lives; may need to change this
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --wait-timeout=28800
+      - --max_allowed_packet=64M
+
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+      networks:
+      - rovaly-suite
+      
+      
+networks:
+  rovaly-suite:
+    external: true
+
+volumes:
+  rovaly-database_volume:

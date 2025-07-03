@@ -8,3 +8,9 @@ services:
       - "8080:8080"
     expose:
       - 8080
+    networks:
+      - rovaly-suite
+
+networks:
+  rovaly-suite:
+    external: true

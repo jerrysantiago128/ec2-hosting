@@ -11,6 +11,8 @@ services:
       - "3306:3306"
     expose: 
       - 3306
+    networks:
+      - rovaly-suite
     volumes:
       - rovaly-database_volume:/var/lib/mysql #persistent MYSQL data volume
       - $HOME/SWE6733-Group-1:/docker-entrypoint-initdb.d/ # folder where database file lives; may need to change this
@@ -25,8 +27,7 @@ services:
       timeout: 5s
       retries: 5
       start_period: 30s
-    networks:
-      - rovaly-suite
+    
       
       
 networks:

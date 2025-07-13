@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  rovaly-web-app-main-sprint2:
+    image: rovaly-web-app:sprint-2-main
+    container_name: rovaly-web-app-main-sprint2
+    ports:
+      - "8080:8080"
+    expose:
+      - 8080
+    networks:
+      - rovaly-suite
+
+networks:
+  rovaly-suite:
+    external: true

@@ -1,4 +1,4 @@
-# Hositng Project On EC2
+# Hosting Project On EC2
 
 The purpose of this project is to automate and version control to hosting of a given php/sql web applicaiton within an AWS EC2 instance. The scripts within this project compelte the following:
 
